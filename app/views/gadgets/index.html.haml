@@ -1,0 +1,23 @@
+%h1.text-align-center All Gadgets
+= render :partial => "upper_links"
+%br
+
+%table.custom_table
+  %tr
+    %th Image
+    %th Name
+    %th Created By
+    %th{:colspan=> 3} Actions
+
+  - @gadgets.each do |gadget|
+    %tr
+      %td= image_tag gadget.photos.first.gadget_photo.url(:thumb)
+      %td= gadget.name.titleize
+      %td= gadget.user.name.titleize
+      %td= link_to 'Show', gadget
+      %td= link_to 'Edit', edit_gadget_path(gadget)
+      %td= link_to 'Destroy', gadget, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+

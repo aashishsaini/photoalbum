@@ -1,0 +1,12 @@
+Some abbrevations used to create this application are :
+
+1.List View will display the list of all gadgets with thumb size image
+2.Iconic View will display the list of all gadgets with medium size image
+3.my gadgets View will display the list of all gadgets with medium size image which are created by me
+4. while showing the gadget the user will upload the photo of gadget if created by himself
+5. show page will display the all sized imaged of gadget
+6.only the owner can delete and upadte the gadget
+7. all users must sign in to perform all actions in application.
+8. bootstarp is used in the application.
+9. all images are stored under public folder.
+10.thin server is used
