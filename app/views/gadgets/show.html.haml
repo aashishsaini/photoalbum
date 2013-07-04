@@ -1,41 +1,43 @@
 %p#notice= notice
-
-%p
-  %h2 Images in diffrent size as Thumb,Small,Medium, Large:
-  %br
-  %div.min-height.text-align-center
-    - @gadget.photos.reject{|gp| gp.id.nil? }.each do |p|
-      = image_tag p.gadget_photo.url(:thumb)
-      %br
-      %br
-      = image_tag p.gadget_photo.url(:small)
-      %br
-      %br
-      = image_tag p.gadget_photo.url(:medium)
-      %br
-      %br
-      = image_tag p.gadget_photo.url(:large)
-      %br
-      %br
-%p
-  %b Name:
-  = @gadget.name
-%p
-  %b Created By:
-  = @gadget.user.name
-
--# check only user who creates an gadget can upload photos specified to it.
-- if @gadget.user.id == current_user.id
-  = form_for @photos, :html => { :multipart => true } do |f|
-
-    .field
-      = f.label :gadget_photo
-      = f.file_field :gadget_photo
-      = f.hidden_field :gadget_id, :value=> @gadget.id
-    .actions
-      = f.submit 'Save'
+%div.sign_in_sign_up_form
+  %p.padding-10
+    %b Name:
+    = @gadget.name.titleize
+  %p.padding-10
+    %b Created By:
+    = @gadget.user.name.titleize
+  %p.text-align-center
+    = link_to_if @gadget.user.id == current_user.id, 'Edit', edit_gadget_path(@gadget)
+    \|
+    = link_to 'Back', gadgets_path
 
 
-= link_to_if @gadget.user.id == current_user.id, 'Edit', edit_gadget_path(@gadget)
-\|
-= link_to 'Back', gadgets_path
+  %p.text-align-center
+    %b Images in diffrent size as Thumb,Small,Medium, Large:
+    %br
+    %div.min-height.text-align-center
+      - @gadget.photos.reject{|gp| gp.id.nil? }.each do |p|
+        = image_tag p.gadget_photo.url(:thumb)
+        %br
+        %br
+        = image_tag p.gadget_photo.url(:small)
+        %br
+        %br
+        = image_tag p.gadget_photo.url(:medium)
+        %br
+        %br
+        = image_tag p.gadget_photo.url(:large)
+        %br
+        %br
+
+  %div.padding-10
+    -# check only user who creates an gadget can upload photos specified to it.
+    - if @gadget.user.id == current_user.id
+      = form_for @photos, :html => { :multipart => true } do |f|
+
+        .field
+          = f.label :gadget_photo, "Add More Photos"
+          = f.file_field :gadget_photo
+          = f.hidden_field :gadget_id, :value=> @gadget.id
+        .actions
+          = f.submit 'Save'

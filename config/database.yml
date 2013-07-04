@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: photo_album_test
+  database: photo_album_development
   pool: 5
   username: root
   password: root

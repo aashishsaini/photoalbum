@@ -29,7 +29,10 @@ gem "paperclip"
 gem "twitter-bootstrap-rails"
 gem "less-rails"
 gem 'thin'
-
+gem 'capybara'
+gem 'rspec-rails'
+gem 'selenium'
+gem 'selenium-webdriver'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

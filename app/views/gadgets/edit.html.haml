@@ -1,7 +1,8 @@
-%h1 Editing Gadget
+%div.sign_in_sign_up_form
+  %h1.text-align-center Editing Gadget
 
-= render 'form'
-
-= link_to 'Show', @gadget
-\|
-= link_to 'Back', gadgets_path
+  = render 'form'
+  %div.margin-left
+    = link_to 'Show', @gadget
+    \|
+    = link_to 'Back', gadgets_path
